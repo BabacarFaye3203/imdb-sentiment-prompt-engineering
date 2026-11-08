@@ -1,26 +1,32 @@
+
 [project]
 name = "tp3-sma"
 version = "0.1.0"
-description = "Add your description here"
+description = "IMDB Sentiment Analysis using Prompt Engineering and LLMs"
 readme = "README.md"
 authors = [
     { name = "Babacar Faye", email = "bf322003@gmail.com" }
 ]
 requires-python = ">=3.13"
 dependencies = [
-    "dotenv>=0.9.9",
     "ipykernel>=7.4.0",
     "ipython>=9.17.1",
     "langchain>=1.4.5",
     "langchain-ollama>=1.1.0",
     "langchain-openai>=1.7.2",
+    "matplotlib",
+    "numpy",
     "pandas>=3.0.6",
+    "python-dotenv>=1.2.4",
+    "scikit-learn",
+    "seaborn",
     "tiktoken>=0.14.0",
 ]
-
-[project.scripts]
-tp3-sma = "tp3_sma:main"
 
 [build-system]
 requires = ["uv_build>=0.12.23,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "prompt_engineering"
+module-root = "src"

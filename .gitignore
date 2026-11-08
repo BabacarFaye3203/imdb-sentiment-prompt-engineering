@@ -1,28 +1,15 @@
+# Environment
+.venv/
+.env
+
 # Python
 __pycache__/
 *.py[cod]
-*.so
-
-# Virtual environments
-.venv/
-venv/
-env/
-
-# Build and packaging
-build/
-dist/
-*.egg-info/
-
-# Environment variables and local secrets
-.env
-.env.*
-!.env.example
+.pytest_cache/
 
 # Jupyter
 .ipynb_checkpoints/
 
-# Editor and operating system
-.vscode/*
-!.vscode/extensions.json
-.DS_Store
-Thumbs.db
+
+# IDE
+.vscode/
