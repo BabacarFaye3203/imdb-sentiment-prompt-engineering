@@ -1,4 +1,4 @@
-# TP3 - Prompt Engineering
+# - Prompt Engineering
 
 Projet de classification de sentiment appliqué au dataset **IMDB Movie Reviews** avec des modèles de langage locaux et différentes techniques de prompt engineering.
 
