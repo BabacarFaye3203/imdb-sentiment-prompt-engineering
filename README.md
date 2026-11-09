@@ -122,3 +122,50 @@ Exécuter les tests unitaires :
 ```powershell
 uv run pytest
 ```
+
+
+## Docker Deployment
+
+### Prerequisites
+
+- Docker Desktop
+- Ollama installed on the host machine
+- Llama 3.2 model available in Ollama
+
+### Start Ollama
+
+Make sure Ollama is running and the model is available:
+
+```bash
+ollama list
+```
+
+### Build and start the API
+
+```bash
+docker compose up --build -d
+```
+
+### Access the API
+
+- API documentation: http://localhost:8000/docs
+- Health check: http://localhost:8000/health
+- Sentiment prediction: POST http://localhost:8000/predict
+
+### View logs
+
+```bash
+docker compose logs -f api
+```
+
+### Stop the application
+
+```bash
+docker compose down
+```
+
+### Architecture
+
+The FastAPI application runs inside a Docker container
+and communicates with Ollama running on the host machine
+through `host.docker.internal:11434`.
