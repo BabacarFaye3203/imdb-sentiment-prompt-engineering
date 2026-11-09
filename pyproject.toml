@@ -9,6 +9,7 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "fastapi>=0.162.2",
     "ipykernel>=7.4.0",
     "ipython>=9.17.1",
     "langchain>=1.4.5",
@@ -21,6 +22,7 @@ dependencies = [
     "scikit-learn",
     "seaborn",
     "tiktoken>=0.14.0",
+    "uvicorn[standard]>=0.54.0",
 ]
 
 [build-system]
