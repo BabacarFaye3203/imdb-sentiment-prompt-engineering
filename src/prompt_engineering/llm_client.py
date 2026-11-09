@@ -1,30 +1,47 @@
+
+import json
+import os
 import re
 
 from langchain_ollama import ChatOllama
 
+
+# Ollama configuration
+OLLAMA_BASE_URL = os.getenv(
+    "OLLAMA_BASE_URL",
+    "http://localhost:11434"
+)
+
+OLLAMA_MODEL = os.getenv(
+    "OLLAMA_MODEL",
+    "llama3.2"
+)
+
+
 # Initialize the local LLM
 llm = ChatOllama(
-    model="llama3.2",
+    model=OLLAMA_MODEL,
+    base_url=OLLAMA_BASE_URL,
     temperature=0
 )
 
+
 def generate_response(prompt: str) -> str:
     """
-    Generate a response using the local Ollama model.
+    Generate a response using the configured Ollama model.
     """
     response = llm.invoke(prompt)
     return response.content
 
+
 def normalize_sentiment(response: str) -> str:
     text = response.strip().lower()
 
-    # Exact label
     if text in {"positive", "negative"}:
         return text
 
-    # Search for a label at the beginning of the response
     match = re.search(
-        r"^\s*\**(positive|negative)\**\s*[.!]?\s*$",
+        r"^\s*\*{0,2}(positive|negative)\*{0,2}\s*[.!]?\s*$",
         text
     )
 
@@ -33,7 +50,6 @@ def normalize_sentiment(response: str) -> str:
 
     return "unknown"
 
-import json
 
 def normalize_json_sentiment(response: str) -> str:
     try:
