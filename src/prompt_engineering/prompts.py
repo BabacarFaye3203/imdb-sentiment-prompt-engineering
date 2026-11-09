@@ -111,3 +111,47 @@ Expected format:
 Movie review:
 {review}
 """
+
+
+def advanced_prompt(review: str) -> str:
+    return f"""
+You are an expert sentiment analysis system specialized
+in movie reviews.
+
+Your task is to identify the reviewer's overall opinion
+about the movie itself.
+
+Follow these reasoning guidelines:
+
+1. Focus on the reviewer's overall evaluation of the movie:
+   acting, directing, story, characters, cinematography,
+   entertainment value and overall experience.
+
+2. Distinguish the opinion about the movie from opinions
+   about unrelated topics such as politics, history,
+   society or personal beliefs.
+
+3. Consider the entire review rather than isolated words.
+   Negative words do not necessarily indicate negative sentiment.
+
+4. Detect sarcasm, irony, humor and exaggerated expressions.
+   Interpret them in their full context.
+
+5. If the review contains both positive and negative opinions,
+   determine which sentiment dominates the overall evaluation.
+
+Classification rules:
+- positive: the reviewer generally appreciates the movie.
+- negative: the reviewer generally dislikes the movie.
+
+IMPORTANT:
+- You MUST choose exactly one label: positive or negative.
+- Never return mixed, neutral or any other category.
+- Return ONLY the label.
+- Do not provide explanations.
+
+Movie review:
+{review}
+
+Sentiment:
+"""
