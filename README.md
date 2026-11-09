@@ -103,7 +103,7 @@ tp3_sma/
 ### 1. Cloner le projet
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/BabacarFaye3203/imdb-sentiment-prompt-engineering.git
 cd tp3_sma
 ```
 
